@@ -15,4 +15,3 @@ class Solution(object):
             curr.next, prev, curr = prev, curr, curr.next
         
         return prev
-        
