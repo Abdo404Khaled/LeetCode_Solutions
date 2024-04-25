@@ -9,11 +9,10 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        if not head or not head.next:
-            return head
+        prev, curr = None, head
+
+        while curr:
+            curr.next, prev, curr = prev, curr, curr.next
         
-        node = self.reverseList(head.next)
-        head.next.next = head
-        head.next = None
-        return node
+        return prev
         
