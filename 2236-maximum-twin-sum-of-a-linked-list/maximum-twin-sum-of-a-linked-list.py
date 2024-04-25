@@ -10,19 +10,23 @@ class Solution(object):
         :rtype: int
         """
         slow_ptr, fast_ptr = head, head
-        nums = []
+        maxVal = 0
 
         while fast_ptr and fast_ptr.next:
-            nums.append(slow_ptr.val)
             slow_ptr = slow_ptr.next
             fast_ptr = fast_ptr.next.next
 
-        i = len(nums) - 1
+        prev = None
 
         while slow_ptr:
-            nums[i] = nums[i] + slow_ptr.val
-            slow_ptr = slow_ptr.next
-            i -= 1
+            slow_ptr.next, prev, slow_ptr = prev, slow_ptr, slow_ptr.next
+        
+        while prev:
+            maxVal = max(maxVal, head.val + prev.val)
+            prev = prev.next
+            head = head.next
+        
+        return maxVal
 
         return max(nums)
         
