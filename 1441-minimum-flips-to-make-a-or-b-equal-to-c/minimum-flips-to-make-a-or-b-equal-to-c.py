@@ -12,7 +12,7 @@ class Solution(object):
             b_bit = b >> i & 1
             c_bit = c >> i & 1
             if not c_bit:
-                res += a_bit + b_bit
-            elif c_bit and (not a_bit and not b_bit):
+                res += (a_bit != 0) + (b_bit != 0)
+            elif a_bit == 0 and b_bit == 0:
                 res += 1
         return res
