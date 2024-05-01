@@ -18,18 +18,22 @@ class Solution(object):
                 '9': ['w','x','y', 'z']
                 }
         
-        n = len(digits)
-        res = []
+        memo = {}
 
-        def dfs(i, temp):
-            if i == n:
-                res.append(temp[:])
-                return
-            
-            for c in keyboard[digits[i]]:
-                temp = temp + c
-                dfs(i+1, temp)
-                temp = temp[:-1]
-            
-        dfs(0, '')
-        return res
+        def backtrack(index):
+            if index == len(digits):
+                return ['']
+
+            if index in memo:
+                return memo[index]
+
+            current_digit = digits[index]
+            combinations = []
+            for char in keyboard[current_digit]:
+                for combination in backtrack(index + 1):
+                    combinations.append(char + combination)
+
+            memo[index] = combinations
+            return combinations
+
+        return backtrack(0)
