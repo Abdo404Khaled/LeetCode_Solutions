@@ -19,14 +19,10 @@ class Solution(object):
 
         for x in range(min(n, m)):
             p1, p2 = int(parts1[x]), int(parts2[x])
-            if p1 < p2:
-                return -1
-            elif p1 > p2:
-                return 1
-                
-        if len(parts1) > len(parts2):
-            return 1
-        elif len(parts2) > len(parts1):
-            return -1
-        return 0
+            if p1 < p2: return -1
+            elif p1 > p2: return 1
+
+        if n > m: return 1
+        elif m > n: return -1
+        else: return 0
         
