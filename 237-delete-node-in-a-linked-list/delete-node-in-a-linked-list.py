@@ -10,15 +10,18 @@ class Solution(object):
         :type node: ListNode
         :rtype: void Do not return anything, modify node in-place instead.
         """
-        curr = node.next
-        prev = node
-
-        while curr.next and prev.next:
-            curr.val, prev.val = prev.val, curr.val
-            prev = curr
-            curr = curr.next
-        curr.val, prev.val = prev.val, curr.val
-        prev.next = None
+        node.val = node.next.val
+        node.next = node.next.next
         
+        # curr = node.next
+        # prev = node
+
+        # while curr.next and prev.next:
+        #     curr.val, prev.val = prev.val, curr.val
+        #     prev = curr
+        #     curr = curr.next
+        # curr.val, prev.val = prev.val, curr.val
+        # prev.next = None
+
     
             
