@@ -19,10 +19,6 @@ class Solution(object):
                 score[index] = str(i + 1)
         
         return score
-
-        
-        
-        return score[::-1]
         
             
 
