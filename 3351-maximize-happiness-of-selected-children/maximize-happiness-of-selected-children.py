@@ -8,11 +8,9 @@ class Solution(object):
         res = 0
 
         happiness.sort(reverse=True)
-        q = deque(happiness)
 
         for i in range(k):
-            c = q.popleft() - i
-            c = 0 if c <= 0 else c
+            c = max(happiness[i] - i, 0)
             res += c
         
         return res
