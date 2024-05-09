@@ -5,15 +5,13 @@ class Solution(object):
         :type k: int
         :rtype: float
         """
-        maxA = sum(nums[:k]) / float(k)
+        maxA = sum(nums[:k])
         res = maxA
         for i in range(len(nums) - k):
-            maxA *= k
             maxA -= nums[i]
             maxA += nums[i + k]
-            maxA = maxA / float(k)
             res = max(res, maxA)
         
-        return res
+        return res / float(k)
         
         
