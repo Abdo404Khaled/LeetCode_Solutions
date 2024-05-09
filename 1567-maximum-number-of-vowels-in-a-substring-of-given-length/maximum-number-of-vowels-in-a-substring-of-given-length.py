@@ -15,15 +15,16 @@ class Solution(object):
         """
         vowels = 'aeiou'
         c = s[:k]
-        res = self.countVowels(c)
-        temp = res
-        for i in range(1, len(s) - k + 1):
-            temp -= 1 if c[0] in vowels else 0
-            c = c[1:]
-            c += s[i+k-1:i+k]
-            temp += 1 if c[-1] in vowels else 0
-            res = max(res, temp)
-        
+        cnt = self.countVowels(c)
+        res = cnt
+
+        for i in range(len(s)-k):
+            if s[i] in 'aeiou':
+                cnt-=1
+            if s[i+k] in 'aeiou':
+                cnt+=1
+            res = max(res, cnt)
+
         return res
 
         
