@@ -1,5 +1,5 @@
 # LeetCode Solutions
-[![Solved Problems](https://img.shields.io/badge/Solved%20Problems-87-blue)](https://github.com/Abdo404Khaled/LeetCode_Solutions)
+[![Solved Problems](https://img.shields.io/badge/Solved%20Problems-95-blue)](https://github.com/Abdo404Khaled/LeetCode_Solutions)
 ## Introduction
 This repository contains my solutions to various LeetCode problems. I'll be updating it regularly as I solve more problems.
 
