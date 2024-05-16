@@ -4,5 +4,8 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
-        return n > 0 and (3**19 % n) == 0
+        if n<=0:
+            return False
+        logvalue=log10(n)/log10(3)
+        return logvalue==int(logvalue)
         
