@@ -12,12 +12,14 @@ class Solution(object):
                 res.append(name)
             else:
                 k = words[name]
-                
-                while "{}({})".format(name, str(k)) in words:
+                new_name = "{}({})".format(name, str(k))
+                while new_name in words:
                     k += 1
-                words["{}({})".format(name, str(k))] = 1
-                res.append("{}({})".format(name, str(k)))
+                    new_name = "{}({})".format(name, str(k))
+
+                words[new_name] = 1
                 words[name] = k + 1
+                res.append(new_name)
         
         return res
         
