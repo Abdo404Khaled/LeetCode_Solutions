@@ -9,6 +9,8 @@ class Solution(object):
             for j in range(len(nums)):
                 if nums[j] >= n:
                     temp += 1
+                if temp > n:
+                    break
             if temp == n:
                 return n
         
