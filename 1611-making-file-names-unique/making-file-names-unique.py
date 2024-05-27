@@ -12,11 +12,12 @@ class Solution(object):
                 res.append(name)
             else:
                 k = words[name]
-                while name + '(' + str(k) + ')' in words:
+                
+                while "{}({})".format(name, str(k)) in words:
                     k += 1
-                words[name + '(' + str(k) + ')'] = 1
-                res.append(name + '(' + str(k) + ')')
-                words[name] = k
+                words["{}({})".format(name, str(k))] = 1
+                res.append("{}({})".format(name, str(k)))
+                words[name] = k + 1
         
         return res
         
