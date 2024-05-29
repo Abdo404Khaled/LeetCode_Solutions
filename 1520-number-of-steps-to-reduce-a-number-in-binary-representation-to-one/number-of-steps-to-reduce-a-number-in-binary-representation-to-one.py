@@ -10,14 +10,14 @@ class Solution(object):
         :rtype: int
         """
         # can you use bit manibulation to either shift right by 1 or add 1 after checking last bit
-        res = 0
-        while s != '1':
-            if s[-1] == '0':
-                s = s[:-1]
-            else:
-                s = bin(int(s, 2) + 1)[2:]
-            res += 1
+        # res = 0
+        # while s != '1':
+        #     if s[-1] == '0':
+        #         s = s[:-1]
+        #     else:
+        #         s = bin(int(s, 2) + 1)[2:]
+        #     res += 1
         
-        return res
+        # return res
         return self.helper(int(s, 2))
         
