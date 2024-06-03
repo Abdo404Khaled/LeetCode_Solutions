@@ -13,13 +13,13 @@ class Solution(object):
             players.add(loser)
         
         zeros, ones = [], []
-        players = sorted(players)
+
         for player in players:
             if player not in losers:
                 zeros.append(player)
             elif losers[player] == 1:
                 ones.append(player)
         
-        return [zeros, ones]
+        return [sorted(zeros), sorted(ones)]
 
         
