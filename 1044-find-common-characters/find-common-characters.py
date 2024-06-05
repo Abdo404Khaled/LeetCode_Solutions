@@ -4,16 +4,16 @@ class Solution(object):
         :type words: List[str]
         :rtype: List[str]
         """
-        common_count = Counter(words[0])
+        if not words:
+            return []
         
-        for word in words[1:]:
-            word_count = Counter(word)
-            for char in common_count.keys():
-                common_count[char] = min(common_count[char], word_count[char])
+        first_word_chars = set(words[0])
         
         res = []
-        for char, count in common_count.items():
-            res.extend([char] * count)
+        
+        for char in first_word_chars:
+            min_count = min(word.count(char) for word in words)
+            res.extend([char] * min_count)
         
         return res
         
