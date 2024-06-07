@@ -1,3 +1,9 @@
+class Trie():
+    def __init__(self, val=''):
+        self.val = val
+        self.children = {}
+        self.isEnd = False
+
 class Solution(object):
     def replaceWords(self, dictionary, sentence):
         """
@@ -5,11 +11,28 @@ class Solution(object):
         :type sentence: str
         :rtype: str
         """
-        words = sentence.split()
-        for letter in dictionary:
-            for i, word in enumerate(words):
-                if word.startswith(letter):
-                    words[i] = letter
+        trie = Trie()
+        for word in dictionary:
+            curr = trie
+            for letter in word:
+                if letter not in curr.children:
+                    curr.children[letter] = Trie(curr.val + letter)
+                curr = curr.children[letter]
+            curr.isEnd = True
         
-        return " ".join(words)
+        res = ""
+        for word in sentence.split():
+            curr = trie
+            for letter in word:
+                if letter in curr.children:
+                    curr = curr.children[letter]
+                    if curr.isEnd:
+                        res += curr.val + " "
+                        break
+                else:
+                    res += word + " "
+                    break
+            else:
+                res += word + " "
         
+        return res.strip()
