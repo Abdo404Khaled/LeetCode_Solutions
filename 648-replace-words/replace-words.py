@@ -20,19 +20,19 @@ class Solution(object):
                 curr = curr.children[letter]
             curr.isEnd = True
         
-        res = ""
+        res = []
         for word in sentence.split():
             curr = trie
             for letter in word:
                 if letter in curr.children:
                     curr = curr.children[letter]
                     if curr.isEnd:
-                        res += curr.val + " "
+                        res.append(curr.val)
                         break
                 else:
-                    res += word + " "
+                    res.append(word)
                     break
             else:
-                res += word + " "
+                res.append(word)
         
-        return res.strip()
+        return ' '.join(res)
