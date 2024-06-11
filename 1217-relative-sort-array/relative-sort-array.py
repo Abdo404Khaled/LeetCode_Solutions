@@ -11,8 +11,10 @@ class Solution(object):
             res.extend([num] * numCounter[num])
             del numCounter[num]
         
-        for num, freq in sorted(numCounter.items()):
-            res.extend([num] * numCounter[num])
+        res2 = []
+        for num, freq in numCounter.items():
+            res2.extend([num] * numCounter[num])
         
-        return res
+        res2.sort()
+        return res + res2
         
