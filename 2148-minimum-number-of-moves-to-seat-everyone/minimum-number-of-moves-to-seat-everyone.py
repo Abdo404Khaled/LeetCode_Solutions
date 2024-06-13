@@ -9,8 +9,8 @@ class Solution(object):
         students.sort()
 
         res = 0
-        for student, seat in zip(students, seats):
-            res += abs(student - seat)
+        for i in range(len(students)):
+            res += abs(students[i] - seats[i])
         
         return res
             
