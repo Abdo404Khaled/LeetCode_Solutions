@@ -7,6 +7,9 @@ class Solution(object):
         :type capital: List[int]
         :rtype: int
         """
+        if w >= max(capital):
+            return w + sum(nlargest(k, profits))
+            
         maxProfit = []
         minCapital = [(c, p) for c, p in zip(capital, profits)]
         heapify(minCapital)
