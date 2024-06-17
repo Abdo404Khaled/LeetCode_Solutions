@@ -4,8 +4,11 @@ class NumArray(object):
         """
         :type nums: List[int]
         """
-        self.nums = nums
-        
+        self.prefix = []
+        sum = 0
+        for n in nums:
+            sum += n
+            self.prefix.append(sum)        
 
     def sumRange(self, left, right):
         """
@@ -13,8 +16,10 @@ class NumArray(object):
         :type right: int
         :rtype: int
         """
-        return sum(self.nums[left:right + 1])
-
+        if(left == 0):
+            return self.prefix[right]
+        return self.prefix[right] - self.prefix[left-1]
+        
 
 # Your NumArray object will be instantiated and called as such:
 # obj = NumArray(nums)
