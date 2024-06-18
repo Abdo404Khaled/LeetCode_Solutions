@@ -10,7 +10,7 @@ class Solution(object):
         workers.sort()
         
         i = mx = res = 0
-        n = len(jobs)
+        n = len(difficulty)
 
         for worker in workers:
 
