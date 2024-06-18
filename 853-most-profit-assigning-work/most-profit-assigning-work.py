@@ -9,8 +9,8 @@ class Solution(object):
         jobs = sorted(zip(difficulty, profit))
         workers.sort()
         
-        i, mx, n = 0, 0, len(workers)
-        res = 0
+        i = mx = res = 0
+        n = len(jobs)
 
         for worker in workers:
 
