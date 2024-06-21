@@ -10,6 +10,7 @@ class Solution(object):
 
         bouquets += adjacent // needed_flowers
         return bouquets >= needed_bouquets
+        
     def minDays(self, bloomDay, m, k):
         """
         :type bloomDay: List[int]
