@@ -5,20 +5,14 @@ class Solution(object):
         :rtype: int
         """
         n = len(nums)
-
-        prefix = [0] * n
-        suffix = [0] * n
-
-        prefix[0] = nums[0]
-        suffix[-1] = nums[-1]
-
-        for i in range(1, len(nums)):
-            prefix[i] = prefix[i - 1] + nums[i]
-            suffix[n - i - 1] = suffix[n - i] + nums[n - i - 1]
-
+        total_sum = sum(nums)
+        prefix_sum = 0
         result = 0
-        for i in range(len(nums) - 1):
-            if prefix[i] >= suffix[i + 1]:
+        
+        for i in range(n - 1):
+            prefix_sum += nums[i]
+            suffix_sum = total_sum - prefix_sum
+            if prefix_sum >= suffix_sum:
                 result += 1
         
         return result
