@@ -8,8 +8,8 @@ class Solution(object):
         result = 0
         n, m = len(nums1), len(nums2)
         
-        result = reduce(lambda a, b: a ^ b, nums1) if m % 2 != 0 else 0
-        result ^= reduce(lambda a, b: a ^ b, nums2) if n % 2 != 0 else 0
+        x1 = reduce(lambda a, b: a ^ b, nums1) if m % 2 != 0 else 0
+        x2 = reduce(lambda a, b: a ^ b, nums2) if n % 2 != 0 else 0
 
-        return result
+        return x1 ^ x2
         
