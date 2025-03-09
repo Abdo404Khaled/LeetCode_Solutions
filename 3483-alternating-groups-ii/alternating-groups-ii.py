@@ -10,8 +10,7 @@ class Solution(object):
         left = 0
 
         for right in range(n + k - 1):
-            index = right % n
-            if colors[index] == colors[index - 1]:
+            if colors[right % n] == colors[(right - 1) % n]:
                 left = right
 
             if right - left + 1 >= k:
