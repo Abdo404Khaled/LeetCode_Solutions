@@ -15,5 +15,5 @@ class Solution(object):
 
             if right - left + 1 >= k:
                 count += 1
-
+                
         return count
