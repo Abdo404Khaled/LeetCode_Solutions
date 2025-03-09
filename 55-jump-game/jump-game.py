@@ -10,6 +10,5 @@ class Solution(object):
         for i in range(n - 1, -1, -1):
             if i + nums[i] >= goal:
                 goal = i
-        
         return not goal
         
